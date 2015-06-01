@@ -12,7 +12,7 @@ import static spark.Spark.post;
 public class UserController {
 
     public UserController(final UserService userService){
-        post("/createUser", (req, res) -> req.body(), json());
+        post("/createUser", (req, res) -> userService.createUser(req.body()), json());
         get("/user/:email", (req, res) -> userService.getUser(req.params(":email")), json());
     }
 }

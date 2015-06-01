@@ -1,30 +1,34 @@
 package org.batonhunter.server.restful.model;
 
 import com.fasterxml.uuid.Generators;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * Created by ianchiu on 2015/5/30.
  */
+@DatabaseTable(tableName = "users")
 public class User {
+    @DatabaseField(unique = true)
     private String email;
+    @DatabaseField(unique = true)
     private String uuid;
+    @DatabaseField
     private String picUri;
+    @DatabaseField
     private String jobId;
+    @DatabaseField
     private String name;
 
+    //ormlite required a empty constructor
+    public User(){}
+
+    //for new user creation process
     public User(String email, String picUri, String name){
         this.email = email;
         this.picUri = picUri;
         this.name = name;
         this.uuid = Generators.timeBasedGenerator().generate().toString();
-    }
-
-    public User(String email, String picUri, String jobId, String name, String uuid){
-        this.email = email;
-        this.picUri = picUri;
-        this.jobId = jobId;
-        this.name = name;
-        this.uuid = uuid;
     }
 
     public String getUuid() {
