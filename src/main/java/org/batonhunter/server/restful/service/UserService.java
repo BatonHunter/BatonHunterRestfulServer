@@ -18,7 +18,7 @@ public class UserService {
         List<User> result = null;
         try {
             result = getDao().queryForEq("email", email);
-            JdbcUtil.disConnect();
+            //JdbcUtil.disConnect();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class UserService {
         
         try {
             getDao().create(new User(user.getEmail(), user.getPicUri(), user.getName()));
-            JdbcUtil.disConnect();
+            //JdbcUtil.disConnect();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
