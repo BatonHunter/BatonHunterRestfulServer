@@ -13,6 +13,9 @@ public class UserController {
 
     public UserController(final UserService userService){
         post("/users", (req, res) -> userService.createUser(req.body()), json());
+
+        post("/users/*/modifystrength", (req, res) -> userService.modifyStrength(req.splat()[0], req.body()), json());
+
         get("/users/:email", (req, res) -> userService.getUser(req.params(":email")), json());
     }
 }

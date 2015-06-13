@@ -13,22 +13,18 @@ import static spark.SparkBase.port;
 public class Main {
     public static void main(String args[]){
         port(Integer.parseInt(args[0]));
-        options("/*", (request, response) -> {
-            String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
-            if (accessControlRequestHeaders != null) {
-                response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+        options("/*", (req, res) -> {
+            String accessControlRequestHeaders = req.headers("Access-Control-Request-Headers");
+            if (null != accessControlRequestHeaders) {
+                res.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
             }
-            String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
-            if (accessControlRequestMethod != null) {
-                response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+            String accessControlRequestMethod = req.headers("Access-Control-Request-Method");
+            if (null != accessControlRequestMethod) {
+                res.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
             return "OK";
         });
-
-        before((request,response)->{
-            response.header("Access-Control-Allow-Origin", "*");
-        });
-
+        before((req, res)-> res.header("Access-Control-Allow-Origin", "*"));
         after((req, res) -> res.type("application/json"));
 
         new UserController(new UserService());
