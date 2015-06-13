@@ -26,6 +26,18 @@ public class UserService {
         return user;
     }
 
+    public Boolean modifyStrength(String email, String body){
+        User user = this.getUser(email);
+        user.setStrength(JsonUtil.fromJson(body, User.class).getStrength());
+        try {
+            getDao().update(user);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public Boolean createUser(String body){
         User user = JsonUtil.fromJson(body, User.class);
         if(user.getEmail().isEmpty()||user.getName().isEmpty()||user.getPicUri().isEmpty()){
