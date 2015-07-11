@@ -1,4 +1,4 @@
-package org.batonhunter.server.restful.model;
+package org.batonhunter.server.restful.model.user;
 
 import com.fasterxml.uuid.Generators;
 import com.j256.ormlite.field.DataType;
@@ -7,15 +7,14 @@ import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by ianchiu on 2015/5/30.
  */
 @DatabaseTable(tableName = "users")
 public class User implements Serializable{
+    //Basic Information
     @DatabaseField(unique = true)
     private String email;
     @DatabaseField(unique = true, id = true)
@@ -23,34 +22,36 @@ public class User implements Serializable{
     @DatabaseField
     private String picUri;
     @DatabaseField
-    private String jobId;
-    @DatabaseField
     private String name;
+
+    //Personality
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     private String[] strength;
     @DatabaseField
     private String category;
-    @ForeignCollectionField
-    private Collection<Job> jobs = null;
-    @DatabaseField
-    private int point;
-    @DatabaseField
-    private int money;
-    @DatabaseField
-    private int ap;
     @DatabaseField
     private String role;
+
+    //Chosen Job list
+    @ForeignCollectionField
+    private Collection<Job> jobs = null;
+
+    //Money, AP, Points, Experience, Level
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true)
+    private Status status;
 
     //ormlite required a empty constructor
     public User(){}
 
-    //for new user creation process
+    //For firsttime Login process
     public User(String email, String picUri, String name){
         this.email = email;
         this.picUri = picUri;
         this.name = name;
-        this.strength = new String[]{};
         this.uuid = Generators.timeBasedGenerator().generate().toString();
+
+        this.strength = new String[]{};
+        this.status = new Status(this);
     }
 
     public Collection getJobs(){
@@ -95,5 +96,9 @@ public class User implements Serializable{
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 }
