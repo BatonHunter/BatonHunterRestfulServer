@@ -3,9 +3,13 @@ package org.batonhunter.server.restful.model;
 import com.fasterxml.uuid.Generators;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by ianchiu on 2015/5/30.
@@ -24,6 +28,18 @@ public class User implements Serializable{
     private String name;
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     private String[] strength;
+    @DatabaseField
+    private String category;
+    @ForeignCollectionField
+    private Collection<Job> jobs = null;
+    @DatabaseField
+    private int point;
+    @DatabaseField
+    private int money;
+    @DatabaseField
+    private int ap;
+    @DatabaseField
+    private String role;
 
     //ormlite required a empty constructor
     public User(){}
@@ -37,44 +53,20 @@ public class User implements Serializable{
         this.uuid = Generators.timeBasedGenerator().generate().toString();
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public Collection getJobs(){
+        return jobs;
     }
 
     public String getPicUri() {
         return picUri;
     }
 
-    public void setPicUri(String picUri) {
-        this.picUri = picUri;
-    }
-
-    public String getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String[] getStrength() {
@@ -83,5 +75,25 @@ public class User implements Serializable{
 
     public void setStrength(String[] strength) {
         this.strength = strength;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setJobs(Collection<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
