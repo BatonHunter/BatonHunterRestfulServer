@@ -38,20 +38,22 @@ public class UserService {
         return false;
     }
 
-    public Boolean createUser(String body){
+    public User createUser(String body){
         User user = JsonUtil.fromJson(body, User.class);
         if(user.getEmail().isEmpty()||user.getName().isEmpty()||user.getPicUri().isEmpty()){
-            return false;
+            return null;
         }
-        
         try {
+            if(getDao().queryForEq("email", user.getEmail()).size()!=0){
+                return getDao().queryForEq("email", user.getEmail()).get(0);
+            }
             getDao().create(new User(user.getEmail(), user.getPicUri(), user.getName()));
             //JdbcUtil.disConnect();
-            return true;
+            return getDao().queryForEq("email", user.getEmail()).get(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
 
     private Dao<User, String> getDao(){
