@@ -27,10 +27,15 @@ public class UserService {
     }
 
     public Boolean modifyStrength(String email, String body){
-        User user = this.getUser(email);
-        user.setStrength(JsonUtil.fromJson(body, User.class).getStrength());
+        User original_User = this.getUser(email);
+        User body_user = JsonUtil.fromJson(body, User.class);
+
+        original_User.setStrength(body_user.getStrength());
+        original_User.setCategory(body_user.getCategory());
+        original_User.setRole(body_user.getRole());
+
         try {
-            getDao().update(user);
+            getDao().update(original_User);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
