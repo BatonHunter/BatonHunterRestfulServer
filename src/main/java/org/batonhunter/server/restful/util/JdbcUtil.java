@@ -5,6 +5,8 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import org.batonhunter.server.restful.model.Job;
+import org.batonhunter.server.restful.model.User;
 
 import java.sql.SQLException;
 
@@ -23,13 +25,18 @@ public class JdbcUtil {
         try {
             connectionSource = new JdbcConnectionSource(DATABASE_URL);
             //in case the table have not been created
-            TableUtils.createTableIfNotExists(connectionSource, classForDao);
+            initDb();
             return DaoManager.createDao(connectionSource, classForDao);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+    private static void initDb() throws SQLException{
+        TableUtils.createTableIfNotExists(connectionSource, User.class);
+        TableUtils.createTableIfNotExists(connectionSource, Job.class);
+    }
+
 
     public static void disConnect(){
         try {
