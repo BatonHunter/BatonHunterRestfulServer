@@ -1,7 +1,9 @@
 package org.batonhunter.server.restful;
 
+import org.batonhunter.server.restful.controller.TreasureController;
 import org.batonhunter.server.restful.controller.UserController;
 import org.batonhunter.server.restful.service.TestService;
+import org.batonhunter.server.restful.service.TreasureService;
 import org.batonhunter.server.restful.service.UserService;
 
 import static org.batonhunter.server.restful.util.JsonUtil.json;
@@ -29,6 +31,7 @@ public class Main {
         after((req, res) -> res.type("application/json"));
 
         new UserController(new UserService());
+        new TreasureController(new TreasureService());
 
         //for testing purpose
         get("/hello", (req, res) -> new TestService().test(), json());

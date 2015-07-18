@@ -1,7 +1,8 @@
 package org.batonhunter.server.restful.service;
 
 import com.j256.ormlite.dao.Dao;
-import org.batonhunter.server.restful.model.User;
+import org.batonhunter.server.restful.model.user.Status;
+import org.batonhunter.server.restful.model.user.User;
 import org.batonhunter.server.restful.util.JdbcUtil;
 import org.batonhunter.server.restful.util.JsonUtil;
 
@@ -17,7 +18,7 @@ public class UserService {
         User user;
         List<User> result = null;
         try {
-            result = getDao().queryForEq("email", email);
+            result = getUserDao().queryForEq("email", email);
             //JdbcUtil.disConnect();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -35,7 +36,7 @@ public class UserService {
         original_User.setRole(body_user.getRole());
 
         try {
-            getDao().update(original_User);
+            getUserDao().update(original_User);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,19 +50,29 @@ public class UserService {
             return null;
         }
         try {
-            if(getDao().queryForEq("email", user.getEmail()).size()!=0){
-                return getDao().queryForEq("email", user.getEmail()).get(0);
+            if(getUserDao().queryForEq("email", user.getEmail()).size()!=0){
+                return getUserDao().queryForEq("email", user.getEmail()).get(0);
             }
-            getDao().create(new User(user.getEmail(), user.getPicUri(), user.getName()));
+            this.createNewUser(user);
             //JdbcUtil.disConnect();
-            return getDao().queryForEq("email", user.getEmail()).get(0);
+            return getUserDao().queryForEq("email", user.getEmail()).get(0);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private Dao<User, String> getDao(){
+    private void createNewUser(User user) throws SQLException {
+        User newUser = new User(user.getEmail(), user.getPicUri(), user.getName());
+        getUserDao().create(newUser);
+        getStatusDao().create(newUser.getStatus());
+    }
+
+    private Dao<User, String> getUserDao(){
         return JdbcUtil.connect(User.class);
+    }
+
+    private Dao<Status, String> getStatusDao(){
+        return JdbcUtil.connect(Status.class);
     }
 }
