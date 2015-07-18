@@ -1,8 +1,8 @@
 package org.batonhunter.server.restful.service;
 
 import com.j256.ormlite.dao.Dao;
-import org.batonhunter.server.restful.model.Job;
-import org.batonhunter.server.restful.model.User;
+import org.batonhunter.server.restful.model.user.Job;
+import org.batonhunter.server.restful.model.user.User;
 import org.batonhunter.server.restful.util.JdbcUtil;
 
 import java.sql.SQLException;

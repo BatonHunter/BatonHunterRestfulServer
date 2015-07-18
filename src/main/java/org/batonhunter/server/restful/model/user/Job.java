@@ -1,4 +1,4 @@
-package org.batonhunter.server.restful.model;
+package org.batonhunter.server.restful.model.user;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -6,7 +6,7 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  * Created by ianchiu on 2015/7/11.
  */
-@DatabaseTable(tableName = "jobs")
+@DatabaseTable(tableName = "userjobs")
 public class Job {
     @DatabaseField(generatedId = true)
     private int _id;

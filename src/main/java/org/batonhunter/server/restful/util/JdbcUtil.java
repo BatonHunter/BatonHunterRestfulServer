@@ -5,8 +5,9 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import org.batonhunter.server.restful.model.Job;
-import org.batonhunter.server.restful.model.User;
+import org.batonhunter.server.restful.model.user.Job;
+import org.batonhunter.server.restful.model.user.Status;
+import org.batonhunter.server.restful.model.user.User;
 
 import java.sql.SQLException;
 
@@ -35,6 +36,7 @@ public class JdbcUtil {
     private static void initDb() throws SQLException{
         TableUtils.createTableIfNotExists(connectionSource, User.class);
         TableUtils.createTableIfNotExists(connectionSource, Job.class);
+        TableUtils.createTableIfNotExists(connectionSource, Status.class);
     }
 
 
