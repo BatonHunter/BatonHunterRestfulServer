@@ -1,13 +1,14 @@
 package org.batonhunter.server.restful.service;
 
 import com.google.gson.JsonObject;
-import com.j256.ormlite.dao.Dao;
 import org.batonhunter.server.restful.model.Treasure;
 import org.batonhunter.server.restful.model.user.Status;
-import org.batonhunter.server.restful.util.JdbcUtil;
+import org.batonhunter.server.restful.service.user.UserService;
 import org.batonhunter.server.restful.util.JsonUtil;
 
 import java.sql.SQLException;
+
+import static org.batonhunter.server.restful.util.JdbcUtil.getDao;
 
 /**
  * Created by ianchiu on 2015/7/11.
@@ -19,7 +20,7 @@ public class TreasureService {
         try {
             Status status = new UserService().getUser(treasure.getEmail()).getStatus();
             status.update(treasure.getTreasure().getMoney(), treasure.getTreasure().getExp(), 0, 0);
-            getStatusDao().update(status);
+            getDao(Status.class).update(status);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -27,9 +28,5 @@ public class TreasureService {
         jsonObject.addProperty("money", treasure.getTreasure().getMoney());
         jsonObject.addProperty("exp", treasure.getTreasure().getExp());
         return jsonObject;
-    }
-
-    private Dao<Status, String> getStatusDao() {
-        return JdbcUtil.connect(Status.class);
     }
 }
