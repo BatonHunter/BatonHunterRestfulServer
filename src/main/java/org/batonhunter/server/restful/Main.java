@@ -2,11 +2,11 @@ package org.batonhunter.server.restful;
 
 import org.batonhunter.server.restful.controller.TreasureController;
 import org.batonhunter.server.restful.controller.UserController;
-import org.batonhunter.server.restful.service.TestService;
+import org.batonhunter.server.restful.service.user.JobService;
+import org.batonhunter.server.restful.service.user.StrengthService;
 import org.batonhunter.server.restful.service.TreasureService;
-import org.batonhunter.server.restful.service.UserService;
+import org.batonhunter.server.restful.service.user.UserService;
 
-import static org.batonhunter.server.restful.util.JsonUtil.json;
 import static spark.Spark.*;
 import static spark.SparkBase.port;
 
@@ -30,10 +30,7 @@ public class Main {
         before((req, res)-> res.header("Access-Control-Allow-Origin", "*"));
         after((req, res) -> res.type("application/json"));
 
-        new UserController(new UserService());
+        new UserController(new UserService(), new StrengthService(), new JobService());
         new TreasureController(new TreasureService());
-
-        //for testing purpose
-        get("/hello", (req, res) -> new TestService().test(), json());
     }
 }

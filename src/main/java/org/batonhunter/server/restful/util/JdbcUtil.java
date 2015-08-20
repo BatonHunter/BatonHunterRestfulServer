@@ -7,6 +7,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import org.batonhunter.server.restful.model.user.Job;
 import org.batonhunter.server.restful.model.user.Status;
+import org.batonhunter.server.restful.model.user.Task;
 import org.batonhunter.server.restful.model.user.User;
 
 import java.sql.SQLException;
@@ -19,10 +20,7 @@ public class JdbcUtil {
     //for testing in in-mem db
     private static final String DATABASE_URL = "jdbc:h2:mem:test";
 
-    //for heroku
-    //private static final String DATABASE_URL = "";
-
-    public static Dao connect(Class classForDao){
+    public static Dao getDao(Class classForDao){
         try {
             connectionSource = new JdbcConnectionSource(DATABASE_URL);
             //in case the table have not been created
@@ -36,6 +34,7 @@ public class JdbcUtil {
     private static void initDb() throws SQLException{
         TableUtils.createTableIfNotExists(connectionSource, User.class);
         TableUtils.createTableIfNotExists(connectionSource, Job.class);
+        TableUtils.createTableIfNotExists(connectionSource, Task.class);
         TableUtils.createTableIfNotExists(connectionSource, Status.class);
     }
 
