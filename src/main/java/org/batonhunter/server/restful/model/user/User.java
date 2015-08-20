@@ -51,7 +51,7 @@ public class User implements Serializable{
         this.uuid = Generators.timeBasedGenerator().generate().toString();
 
         this.strength = new String[]{};
-        this.status = new Status(this);
+        this.status = new Status();
     }
 
     public Collection getJobs(){
@@ -100,5 +100,9 @@ public class User implements Serializable{
 
     public Status getStatus() {
         return status;
+    }
+
+    public boolean isJobFull(){
+        return jobs.size() >= 3;
     }
 }

@@ -21,9 +21,7 @@ public class Status {
     @DatabaseField
     private int point;
 
-    public Status(){}
-
-    public Status(User user){
+    public Status(){
         this.money = 0;
         this.exp = 0;
         this.level = 1;
