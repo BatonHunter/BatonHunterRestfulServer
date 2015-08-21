@@ -33,4 +33,8 @@ public class Category {
     public Collection<Job> getJobs() {
         return jobs;
     }
+
+    public void setJobs(Collection<Job> jobs){
+        this.jobs = jobs;
+    }
 }

@@ -45,6 +45,10 @@ public class Task {
         return (Question)questions.toArray()[i];
     }
 
+    public void setQuestions(Collection<Question> questions){
+        this.questions = questions;
+    }
+
     public boolean equals(String taskId) {
         return taskId.equals(String.valueOf(this.taskId));
     }

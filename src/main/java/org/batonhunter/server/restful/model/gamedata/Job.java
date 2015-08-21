@@ -36,6 +36,10 @@ public class Job {
         this.tasks = tasks;
     }
 
+    public void setTasks(Collection<Task> tasks){
+        this.tasks = tasks;
+    }
+
     public boolean equals(String jobId) {
         return jobId.equals(String.valueOf(this.jobId));
     }

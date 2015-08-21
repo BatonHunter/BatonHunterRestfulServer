@@ -608,7 +608,7 @@ public class TestData {
 
         categories.add(
                 new Category(
-                        "精英管理",
+                        "經營管理",
                         "www.google.com",
                         jobs)
         );
