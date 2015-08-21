@@ -1,7 +1,9 @@
 package org.batonhunter.server.restful;
 
+import org.batonhunter.server.restful.controller.CategoryController;
 import org.batonhunter.server.restful.controller.TreasureController;
 import org.batonhunter.server.restful.controller.UserController;
+import org.batonhunter.server.restful.service.gamedata.CategoryService;
 import org.batonhunter.server.restful.service.user.JobService;
 import org.batonhunter.server.restful.service.user.StrengthService;
 import org.batonhunter.server.restful.service.TreasureService;
@@ -32,5 +34,6 @@ public class Main {
 
         new UserController(new UserService(), new StrengthService(), new JobService());
         new TreasureController(new TreasureService());
+        new CategoryController(new CategoryService());
     }
 }
