@@ -25,4 +25,12 @@ public class Category {
         this.imgPath = imgPath;
         this.jobs = jobs;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Collection<Job> getJobs() {
+        return jobs;
+    }
 }

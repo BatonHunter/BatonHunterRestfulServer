@@ -35,4 +35,12 @@ public class Job {
         this.description = description;
         this.tasks = tasks;
     }
+
+    public boolean equals(String jobId) {
+        return jobId.equals(String.valueOf(this.jobId));
+    }
+
+    public Collection<Task> getTasks() {
+        return tasks;
+    }
 }

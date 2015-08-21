@@ -11,11 +11,11 @@ import static spark.Spark.get;
 public class CategoryController {
     public CategoryController(final CategoryService categoryService){
         get("/categories", (req, res) -> categoryService.getAllCategory(), json());
-        get("/category/*/job", (req, res) -> categoryService.getAllCategory(), json());
+        get("/categories/*/job", (req, res) -> categoryService.getAllJob(req.splat()[0]), json());
 
-        get("/jobs/*", (req, res) -> categoryService.getAllCategory(), json());
-        get("/jobs/*/task", (req, res) -> categoryService.getAllCategory(), json());
+        get("/jobs/*/task", (req, res) -> categoryService.getTasks(req.splat()[0]), json());
+        get("/jobs/*/task/*", (req, res) -> categoryService.getTaskById(req.splat()[0], req.splat()[1]), json());
 
-        get("/jobs/*/task/*/question", (req, res) -> categoryService.getAllCategory(), json());
+        get("/question/*/*", (req, res) -> categoryService.getRandomQuestion(req.splat()[0], req.splat()[1]), json());
     }
 }

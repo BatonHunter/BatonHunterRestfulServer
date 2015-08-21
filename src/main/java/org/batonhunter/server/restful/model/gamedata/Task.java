@@ -5,7 +5,9 @@ import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 import org.batonhunter.server.restful.model.gamedata.Question.Question;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 /**
  * Created by ianchiu on 2015/8/21.
@@ -35,5 +37,15 @@ public class Task {
         this.content = content;
         this.imgPath = imgPath;
         this.questions = questions;
+    }
+
+    public Question randomeQuestion(){
+        Random rnd = new Random();
+        int i = rnd.nextInt(questions.size());
+        return (Question)questions.toArray()[i];
+    }
+
+    public boolean equals(String taskId) {
+        return taskId.equals(String.valueOf(this.taskId));
     }
 }
