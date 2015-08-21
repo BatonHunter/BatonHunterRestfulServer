@@ -5,9 +5,7 @@ import org.batonhunter.server.restful.service.user.StrengthService;
 import org.batonhunter.server.restful.service.user.UserService;
 
 import static org.batonhunter.server.restful.util.JsonUtil.json;
-import static spark.Spark.delete;
-import static spark.Spark.get;
-import static spark.Spark.post;
+import static spark.Spark.*;
 
 /**
  * Created by ianchiu on 2015/5/30.
@@ -26,6 +24,7 @@ public class UserController {
 
         //Related to Job of the user
         post("/users/*/job", (req, res) -> jobService.addJob(req.splat()[0], req.body()), json());
+        put("/users/*/job/*/task/*", (req, res) -> jobService.completedTask(req.splat()[0], req.splat()[1], req.splat()[2]), json());
         delete("/users/*/job/*", (req, res) -> jobService.deleteJob(req.splat()[0], req.splat()[1]), json());
     }
 }

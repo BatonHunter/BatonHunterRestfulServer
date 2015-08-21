@@ -11,5 +11,11 @@ import static spark.Spark.get;
 public class CategoryController {
     public CategoryController(final CategoryService categoryService){
         get("/categories", (req, res) -> categoryService.getAllCategory(), json());
+        get("/category/*/job", (req, res) -> categoryService.getAllCategory(), json());
+
+        get("/jobs/*", (req, res) -> categoryService.getAllCategory(), json());
+        get("/jobs/*/task", (req, res) -> categoryService.getAllCategory(), json());
+
+        get("/jobs/*/task/*/question", (req, res) -> categoryService.getAllCategory(), json());
     }
 }
