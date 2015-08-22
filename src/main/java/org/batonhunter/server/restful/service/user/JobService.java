@@ -47,6 +47,28 @@ public class JobService {
         return false;
     }
 
+    public Boolean completedTask(String email, String jobId, String taskId){
+        ArrayList<Job> jobs = new ArrayList<>(new UserService().getUser(email).getJobs());
+        for (Job job: jobs){
+            if(job.equals(jobId)){
+                ArrayList<Task> tasks = new ArrayList<>(job.getTasks());
+                for(Task task: tasks){
+                    if(task.equals(taskId)){
+                        task.taskCompleted();
+                        try {
+                            task.setJob(job);
+                            getDao(Task.class).update(task);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     private void insertJobIntoDb(Job job, User user) {
         try {
             job.setUser(user);

@@ -33,4 +33,8 @@ public class Task {
     public void taskCompleted(){
         this.isComplete = true;
     }
+
+    public boolean equals(String taskId) {
+        return taskId.equals(String.valueOf(this.taskId));
+    }
 }
