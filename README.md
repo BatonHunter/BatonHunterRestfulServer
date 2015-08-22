@@ -33,3 +33,10 @@ Get all job in specific category by provide title
 }
 ###Put    /users/:email/job/:jobId/task/:taskId
 ###Delete    /users/:email/job/:jobId
+
+##Email
+###Post    /emails
+{"content" : "I am jiro, I am the best man ever",
+"to" : "jiro@bestman.com",
+"subject" : "best man here"
+    }
