@@ -19,7 +19,13 @@ public class Treasure {
 
     public enum TreasureType{
         @SerializedName("slot")
-        SLOT("slot", 10, 100);
+        SLOT("slot", 10, 100),
+        @SerializedName("smallmonster")
+        SMALLMONSTER("smallmonster", 50, 50),
+        @SerializedName("bigmonster")
+        BIGMONSTER("bigmonster", 100, 120),
+        @SerializedName("boss")
+        BOSS("boss", 1000, 1000);
 
         private String type;
         private int money;

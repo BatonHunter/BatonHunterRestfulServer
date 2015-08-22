@@ -19,6 +19,7 @@ dependencies {
     compile 'com.sun.jersey:jersey-client:1.19'
     compile 'com.sun.jersey:jersey-core:1.19'
     compile 'com.sun.jersey.contribs:jersey-multipart:1.19'
+    compile 'com.sun.jersey:jersey-bundle:1.19'
 
     //for testing
     compile 'com.h2database:h2:1.4.187'
