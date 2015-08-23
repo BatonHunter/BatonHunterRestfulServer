@@ -59,6 +59,10 @@ public class CategoryService {
         return getTaskById(jobId, taskId).randomeQuestion();
     }
 
+    public Question getRandomQuestion(String jobId){
+        return getJobById(jobId).randomQuestion();
+    }
+
     private ArrayList<Category> getAllCategory(){
         return new TestData().getCategories();
     }

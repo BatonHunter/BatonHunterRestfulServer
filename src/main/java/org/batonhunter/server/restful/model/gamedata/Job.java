@@ -3,8 +3,10 @@ package org.batonhunter.server.restful.model.gamedata;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.batonhunter.server.restful.model.gamedata.Question.Question;
 
 import java.util.Collection;
+import java.util.Random;
 
 /**
  * Created by ianchiu on 2015/8/21.
@@ -46,5 +48,15 @@ public class Job {
 
     public Collection<Task> getTasks() {
         return tasks;
+    }
+
+    public Question randomQuestion(){
+        return randomTask().randomeQuestion();
+    }
+
+    private Task randomTask(){
+        Random rnd = new Random();
+        int i = rnd.nextInt(tasks.size());
+        return (Task)tasks.toArray()[i];
     }
 }

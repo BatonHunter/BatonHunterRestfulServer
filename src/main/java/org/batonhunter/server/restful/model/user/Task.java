@@ -7,7 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
  * Created by ianchiu on 2015/7/11.
  */
 @DatabaseTable(tableName = "usertasks")
-public class Task {
+public class Task implements ForeignObject{
 
     @DatabaseField(generatedId = true, unique = true)
     private int id;
@@ -36,5 +36,10 @@ public class Task {
 
     public boolean equals(String taskId) {
         return taskId.equals(String.valueOf(this.taskId));
+    }
+
+    @Override
+    public void setForeign(Object object) {
+        this.job = (Job) object;
     }
 }
