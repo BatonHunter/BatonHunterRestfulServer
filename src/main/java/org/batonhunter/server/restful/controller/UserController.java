@@ -26,5 +26,7 @@ public class UserController {
         post("/users/*/job", (req, res) -> jobService.addJob(req.splat()[0], req.body()), json());
         put("/users/*/job/*/task/*", (req, res) -> jobService.completedTask(req.splat()[0], req.splat()[1], req.splat()[2]), json());
         delete("/users/*/job/*", (req, res) -> jobService.deleteJob(req.splat()[0], req.splat()[1]), json());
+
+        post("/users/*/card", (req, res) -> userService.addCard(req.splat()[0], req.body()), json());
     }
 }

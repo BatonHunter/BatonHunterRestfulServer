@@ -17,7 +17,8 @@ Get all job in specific category by provide title
 ##Treasure
 ###Post   /treasures
 {"email" : "baton@baton.com",
-"type" : "slot"}
+"treasure" : "slot"}
+type can also be big, little, and boss
 
 ##User
 ###Post     /users
@@ -31,6 +32,8 @@ Get all job in specific category by provide title
 {"id":"9",
 "title":"攻城屍"
 }
+###Post   /users/:email/card
+{"title":"JIRO!"}
 ###Put    /users/:email/job/:jobId/task/:taskId
 ###Delete    /users/:email/job/:jobId
 

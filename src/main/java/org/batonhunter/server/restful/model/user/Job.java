@@ -11,7 +11,7 @@ import java.util.Collection;
  * Created by ianchiu on 2015/7/11.
  */
 @DatabaseTable(tableName = "userjobs")
-public class Job {
+public class Job implements ForeignObject {
     @DatabaseField(generatedId = true, unique = true)
     private int id;
     @DatabaseField
@@ -52,5 +52,10 @@ public class Job {
 
     public boolean equals(String jobId) {
         return jobId.equals(String.valueOf(this.jobId));
+    }
+
+    @Override
+    public void setforeign(Object object) {
+        this.user = (User)object;
     }
 }

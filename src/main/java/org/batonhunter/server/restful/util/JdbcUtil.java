@@ -7,10 +7,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import org.batonhunter.server.restful.model.gamedata.Category;
 import org.batonhunter.server.restful.model.gamedata.Question.Question;
-import org.batonhunter.server.restful.model.user.Job;
-import org.batonhunter.server.restful.model.user.Status;
-import org.batonhunter.server.restful.model.user.Task;
-import org.batonhunter.server.restful.model.user.User;
+import org.batonhunter.server.restful.model.user.*;
 
 import java.sql.SQLException;
 
@@ -36,6 +33,7 @@ public class JdbcUtil {
     private static void initDb() throws SQLException{
         TableUtils.createTableIfNotExists(connectionSource, User.class);
         TableUtils.createTableIfNotExists(connectionSource, Job.class);
+        TableUtils.createTableIfNotExists(connectionSource, Card.class);
         TableUtils.createTableIfNotExists(connectionSource, Task.class);
         TableUtils.createTableIfNotExists(connectionSource, Status.class);
 

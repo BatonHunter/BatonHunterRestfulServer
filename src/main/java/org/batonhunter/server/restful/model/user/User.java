@@ -36,6 +36,9 @@ public class User implements Serializable{
     @ForeignCollectionField
     private Collection<Job> jobs = null;
 
+    @ForeignCollectionField
+    private Collection<Card> cards = null;
+
     //Money, AP, Points, Experience, Level
     @DatabaseField(foreign = true, foreignAutoRefresh = true, foreignAutoCreate = true)
     private Status status;
@@ -104,5 +107,13 @@ public class User implements Serializable{
 
     public boolean isJobFull(){
         return jobs.size() >= 3;
+    }
+
+    public Collection<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(Collection<Card> cards) {
+        this.cards = cards;
     }
 }
