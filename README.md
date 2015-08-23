@@ -10,6 +10,7 @@ Get all job in specific category by provide title
 
 ##Job
 ###Get    /jobs/:jobId
+###Get    /jobs/:jobId/question
 ###Get    /jobs/:jobId/task
 ###Get    /jobs/:jobId/task/:taskId
 ###Get:   /jobs/:jobId/task/:taskId/question

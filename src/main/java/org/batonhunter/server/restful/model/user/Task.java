@@ -39,7 +39,7 @@ public class Task implements ForeignObject{
     }
 
     @Override
-    public void setforeign(Object object) {
+    public void setForeign(Object object) {
         this.job = (Job) object;
     }
 }

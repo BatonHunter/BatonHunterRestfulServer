@@ -21,6 +21,8 @@ public class CategoryController {
         get("/jobs/*/task/*", (req, res) -> categoryService.getTask(req.splat()[0], req.splat()[1]), json());
         //return all task in job by jobId
         get("/jobs/*/task", (req, res) -> categoryService.getTasks(req.splat()[0]), json());
+        //return a random question base on jobId only
+        get("/jobs/*/question", (req, res) -> categoryService.getRandomQuestion(req.splat()[0]), json());
         //return job by jobId
         get("/jobs/*", (req, res) -> categoryService.getJob(req.splat()[0]), json());
     }

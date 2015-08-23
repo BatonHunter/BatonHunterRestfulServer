@@ -55,7 +55,7 @@ public class Job implements ForeignObject {
     }
 
     @Override
-    public void setforeign(Object object) {
+    public void setForeign(Object object) {
         this.user = (User)object;
     }
 }
