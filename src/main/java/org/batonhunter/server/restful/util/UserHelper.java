@@ -28,7 +28,7 @@ public class UserHelper {
         Collection<ForeignObject> userForeignObjects = new ArrayList<>();
         while(iterator.hasNext()){
             ForeignObject userForeignObject = iterator.next();
-            userForeignObject.setforeign(null);
+            userForeignObject.setForeign(null);
             if(userForeignObject instanceof Job){
                 userForeignObject = removeInfinityJobFromTask((Job) userForeignObject);
             }
