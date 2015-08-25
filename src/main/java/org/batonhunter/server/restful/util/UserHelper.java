@@ -1,5 +1,6 @@
 package org.batonhunter.server.restful.util;
 
+import org.batonhunter.server.restful.model.ForeignObject;
 import org.batonhunter.server.restful.model.user.*;
 
 import java.util.ArrayList;
@@ -25,15 +26,15 @@ public class UserHelper {
     }
 
     private static <E extends ForeignObject> Collection<E> removeInfinityForeignObject(Iterator<E> iterator){
-        Collection<ForeignObject> userForeignObjects = new ArrayList<>();
+        Collection<ForeignObject> foreignObjects = new ArrayList<>();
         while(iterator.hasNext()){
-            ForeignObject userForeignObject = iterator.next();
-            userForeignObject.setForeign(null);
-            if(userForeignObject instanceof Job){
-                userForeignObject = removeInfinityJobFromTask((Job) userForeignObject);
+            ForeignObject foreignObject = iterator.next();
+            foreignObject.setPrimaryObject(null);
+            if(foreignObject instanceof Job){
+                foreignObject = removeInfinityJobFromTask((Job) foreignObject);
             }
-            userForeignObjects.add(userForeignObject);
+            foreignObjects.add(foreignObject);
         }
-        return (Collection<E>) userForeignObjects;
+        return (Collection<E>) foreignObjects;
     }
 }

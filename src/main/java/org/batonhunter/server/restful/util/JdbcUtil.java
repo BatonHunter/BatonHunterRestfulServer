@@ -5,8 +5,6 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import org.batonhunter.server.restful.model.gamedata.Category;
-import org.batonhunter.server.restful.model.gamedata.Question.Question;
 import org.batonhunter.server.restful.model.user.*;
 
 import java.sql.SQLException;
@@ -37,7 +35,7 @@ public class JdbcUtil {
         TableUtils.createTableIfNotExists(connectionSource, Task.class);
         TableUtils.createTableIfNotExists(connectionSource, Status.class);
 
-//        TableUtils.createTableIfNotExists(connectionSource, Category.class);
+//        TableUtils.createTableIfNotExists(connectionSource, SubCategory.class);
 //        TableUtils.createTableIfNotExists(connectionSource, org.batonhunter.server.restful.model.gamedata.Job.class);
 //        TableUtils.createTableIfNotExists(connectionSource, org.batonhunter.server.restful.model.gamedata.Task.class);
 //        TableUtils.createTableIfNotExists(connectionSource, Question.class);

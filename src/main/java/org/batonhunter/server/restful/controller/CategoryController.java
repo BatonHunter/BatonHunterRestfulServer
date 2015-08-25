@@ -10,8 +10,11 @@ import static spark.Spark.get;
  */
 public class CategoryController {
     public CategoryController(final CategoryService categoryService){
-        //return all job in categories by title
-        get("/categories/*/job", (req, res) -> categoryService.getJobs(req.splat()[0]), json());
+
+        //return all job in subcategory by title
+        get("/categories/*/subcategory/*/job", (req, res) -> categoryService.getJobs(req.splat()[0], req.splat()[1]), json());
+        //return all subcategory in categories by title
+        get("/categories/*/subcategory", (req, res) -> categoryService.getSubCategories(req.splat()[0]), json());
         //return all categories
         get("/categories", (req, res) -> categoryService.getCategories(), json());
 

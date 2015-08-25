@@ -2,12 +2,13 @@ package org.batonhunter.server.restful.model.user;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.batonhunter.server.restful.model.ForeignObject;
 
 /**
  * Created by ianchiu on 2015/7/11.
  */
 @DatabaseTable(tableName = "usertasks")
-public class Task implements ForeignObject{
+public class Task implements ForeignObject {
 
     @DatabaseField(generatedId = true, unique = true)
     private int id;
@@ -39,7 +40,7 @@ public class Task implements ForeignObject{
     }
 
     @Override
-    public void setForeign(Object object) {
+    public void setPrimaryObject(Object object) {
         this.job = (Job) object;
     }
 }

@@ -4,9 +4,9 @@ Restful server for Baton Hunter
 ##Category
 ###Get:   /categories
 Get all categories
-###Get:   /categories/:title/job
-Get all job in specific category by provide title
-*e.g: /categories/經營管理/job
+###Get:   /categories/:title/subcategory
+###Get:   /categories/:title/subcategory/:title/job
+*e.g: /categories/經營管理/subcategory/金融投資/job
 
 ##Job
 ###Get    /jobs/:jobId
