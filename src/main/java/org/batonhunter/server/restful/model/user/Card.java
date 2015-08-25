@@ -2,6 +2,7 @@ package org.batonhunter.server.restful.model.user;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.batonhunter.server.restful.model.ForeignObject;
 
 /**
  * Created by ianchiu on 2015/8/23.
@@ -24,7 +25,7 @@ public class Card implements ForeignObject {
     }
 
     @Override
-    public void setForeign(Object object) {
+    public void setPrimaryObject(Object object) {
         this.user = (User)object;
     }
 }

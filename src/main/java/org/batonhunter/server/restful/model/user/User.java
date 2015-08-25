@@ -105,6 +105,14 @@ public class User implements Serializable{
         return status;
     }
 
+    public Boolean isJobDuplicated(String jobId){
+        for(Job job: this.jobs){
+            if(job.equals(jobId))
+                return true;
+        }
+        return false;
+    }
+
     public boolean isJobFull(){
         return jobs.size() >= 3;
     }

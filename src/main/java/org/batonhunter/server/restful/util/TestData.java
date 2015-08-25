@@ -1,6 +1,7 @@
 package org.batonhunter.server.restful.util;
 
 import org.batonhunter.server.restful.model.gamedata.Category;
+import org.batonhunter.server.restful.model.gamedata.SubCategory;
 import org.batonhunter.server.restful.model.gamedata.Job;
 import org.batonhunter.server.restful.model.gamedata.Question.ChoiceQuestion;
 import org.batonhunter.server.restful.model.gamedata.Question.LinkQuestion;
@@ -23,6 +24,7 @@ public class TestData {
     private void init() {
         categories = new ArrayList<>();
 
+        ArrayList<SubCategory> subCategories = new ArrayList<>();
         ArrayList<Job> jobs = new ArrayList<>();
         ArrayList<Task> tasks = new ArrayList<>();
         ArrayList<Question> questions = new ArrayList<>();
@@ -606,11 +608,17 @@ public class TestData {
                         tasks)
         );
 
-        categories.add(
-                new Category(
-                        "經營管理",
+        subCategories.add(
+                new SubCategory(
+                        "金融投資",
                         "www.google.com",
                         jobs)
+        );
+
+        categories.add(
+                new Category("經營管理",
+                        "www.google.com",
+                        subCategories)
         );
     }
 
