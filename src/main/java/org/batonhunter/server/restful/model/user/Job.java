@@ -3,6 +3,7 @@ package org.batonhunter.server.restful.model.user;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.batonhunter.server.restful.model.ForeignObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -55,7 +56,7 @@ public class Job implements ForeignObject {
     }
 
     @Override
-    public void setForeign(Object object) {
+    public void setPrimaryObject(Object object) {
         this.user = (User)object;
     }
 }

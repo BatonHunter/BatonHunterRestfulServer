@@ -3,6 +3,7 @@ package org.batonhunter.server.restful.model.gamedata;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.batonhunter.server.restful.model.PrimaryObject;
 import org.batonhunter.server.restful.model.gamedata.Question.Question;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.Random;
  * Created by ianchiu on 2015/8/21.
  */
 @DatabaseTable(tableName = "tasks")
-public class Task {
+public class Task implements PrimaryObject{
     @DatabaseField(generatedId = true)
     private int id;
     @DatabaseField
@@ -51,5 +52,10 @@ public class Task {
 
     public boolean equals(String taskId) {
         return taskId.equals(String.valueOf(this.taskId));
+    }
+
+    @Override
+    public void removeForeignObject() {
+        questions = null;
     }
 }
