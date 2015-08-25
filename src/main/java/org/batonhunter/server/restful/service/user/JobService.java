@@ -20,10 +20,12 @@ public class JobService {
     public Boolean addJob(String email, String body) {
         Map<String, String> mapedBody = convertBodytoMap(body);
         User user = new UserService().getUser(email);
-        Job job = new Job(parseInt(mapedBody.get("id")), mapedBody.get("title"));
 
-        if (!user.isJobFull()) {
-            this.insertJobIntoDb(job, user);
+        if (!user.isJobFull() && !user.isJobDuplicated(mapedBody.get("id"))) {
+            this.insertJobIntoDb(
+                    new Job(parseInt(mapedBody.get("id")), mapedBody.get("title")),
+                    user
+            );
             return true;
         } else {
             return false;
