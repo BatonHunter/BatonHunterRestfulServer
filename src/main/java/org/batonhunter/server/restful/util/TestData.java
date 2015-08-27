@@ -80,7 +80,7 @@ public class TestData {
                                 "只要「大家都同意」這是可以交換的價值,那這東西就可以當作錢來使用。現\n" +
                                 "在的世界上,貨幣(像美金)就是錢,是以國家的「信用」為擔保,讓大家都能\n" +
                                 "同意那是可以拿來交換的價值。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -137,7 +137,7 @@ public class TestData {
                                 "經濟行為則以尋求利潤為目標。主要經濟模式包括自由的資本和雇傭流動、市\n" +
                                 "場競爭、以及價格機制的運行。一般普遍認為資本主義在西方世界的封建制度\n" +
                                 "崩壞之後成為了最主要的經濟模式。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -193,7 +193,7 @@ public class TestData {
                                 "法律上的權利。企業是現代經濟最重要的元素,有了企業,才有正式的組織,\n" +
                                 "分工,也能更有效率的讓經濟運作。目前我們所知道的幾乎所有商品與服務,\n" +
                                 "都是企業這樣的組織型態所生產出來的。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -248,7 +248,7 @@ public class TestData {
                                 "? 商業模式是一種概念性系統,包含了一系列要素及其關係,用以闡明某種商\n" +
                                 "業邏輯。它描述了公司所能提供的價值、客戶、合作伙伴網路和關係資本等藉\n" +
                                 "以實現商業過程,這一過程可產生企業的營利收入。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -304,7 +304,7 @@ public class TestData {
                         "只要「大家都同意」這是可以交換的價值,那這東西就可以當作錢來使用。現\n" +
                         "在的世界上,貨幣(像美金)就是錢,是以國家的「信用」為擔保,讓大家都能\n" +
                         "同意那是可以拿來交換的價值。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -360,11 +360,10 @@ public class TestData {
                                 "一種財務報表。主要元素有營收(所有的收入),營業利益(營收-營業成本),稅\n" +
                                 "前淨利(營業利益+業外收益),稅後淨利(稅前淨利-稅)。每股盈餘(每一股平均\n" +
                                 "賺到多少錢)",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
-        //TODO: question and task below haven't been changed
         questions = new ArrayList<>();
         questions.add(
                 new TrueFalseQuestion(
@@ -418,7 +417,7 @@ public class TestData {
                                 "一固定期間(通常是每季或每年)內,一家企業或機構的現金 (包含銀行存款) \n" +
                                 "增滅變動的情況。主要是想反映出資產負債表中各個項目對現金流量的影響,\n" +
                                 "並根據其用途劃分為經營、投資及融資三個活動分類。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -473,7 +472,7 @@ public class TestData {
                                 "塊錢(淨值),可以借到多少錢(負債)來用。如果企業負債是5,淨值是1,那槓\n" +
                                 "桿就是負債/淨值=5/1=5倍。 槓桿會放大所有的效果,若槓桿比率是5倍,那企\n" +
                                 "業賺錢可以多五倍,但賠錢也是賠五倍。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -528,7 +527,7 @@ public class TestData {
                                 "錢來用。舉債是企業充實營運資金的重要方式。企業可以藉由借債,取得資金\n" +
                                 ",去作各種投資,讓企業可以營運。借債與槓桿是同步的,企業負債佔總資產\n" +
                                 "越多,槓桿比率就越高。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -582,7 +581,7 @@ public class TestData {
                         "投資,是理性的,是對想要購買的資產進行研究,憑藉分析,並且了解其內容\n" +
                                 "與發展前景,然後才買進。賭博是感性的,是憑感覺,甚至是謠言,而決定買\n" +
                                 "進或是賣出一項資產。",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/CsWFbJm8TyOwX3R1EU2m",
                         questions)
         );
 
@@ -590,7 +589,7 @@ public class TestData {
                 new Job(
                         1,
                         "投資",
-                        "www.google.com",
+                        "https://www.filepicker.io/api/file/wN5AxL80TAy5Jgj18v6d",
                         "投資關卡簡介\n" +
                                 "歡迎您選擇投資領域,習得此項能力,代表您將能夠了解資本流動方式。\n" +
                                 "擁有此能力者,將能更了解產業趨勢,資金流動規則,進而達到將資產配置到\n" +
